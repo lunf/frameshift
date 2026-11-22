@@ -1,14 +1,19 @@
 ![Frame Shift preview](FrameShift/Assets/app-preview.png)
 
-# Frame Shift
+# Frame Shift v1.20
 
 A lightweight Windows tray app that updates your desktop wallpaper with photos from the Unsplash API.
 
 ## 🚀 Get started
 
-**▶️ Run a release:** open `FrameShift.exe` in `artifacts/win-x64-self-contained`. This build includes .NET.
+**▶️ Run a release:** extract a ZIP and open `FrameShift.exe`:
 
-**💻 Run from source:** install the .NET 8 SDK or newer, open a terminal in the project folder, and run:
+- **Standalone — .NET included:** runs without installing .NET.
+- **Small — requires .NET 10:** install the [.NET 10 Desktop Runtime x64](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) first.
+
+Release files are in `artifacts/releases` and include `v1.20` in their names.
+
+**💻 Run from source:** install the .NET 10 SDK, open a terminal in the project folder, and run:
 
 ```powershell
 dotnet run --project FrameShift/FrameShift.csproj -c Release
@@ -59,8 +64,16 @@ Choose **Photo source → Unsplash** to use it. Unsplash's [API guidelines](http
 
 ## 📦 Build a release
 
+Standalone (.NET included):
+
 ```powershell
 dotnet publish FrameShift/FrameShift.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o artifacts/win-x64-self-contained
+```
+
+Smaller build (requires .NET 10 Desktop Runtime x64):
+
+```powershell
+dotnet publish FrameShift/FrameShift.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o artifacts/win-x64-small
 ```
 
 Keep the executable in a permanent folder before enabling **Start with Windows**. Enable it again if you move the app.

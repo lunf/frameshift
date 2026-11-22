@@ -1,5 +1,6 @@
 using System.Drawing.Imaging;
 using FrameShift;
+using FrameShift.Core;
 
 namespace FrameShift.Windows.Tests;
 
@@ -62,7 +63,7 @@ internal static class Program
             File.WriteAllText(path, "invalid image");
             applied = false;
             try { new Wallpaper(_ => applied = true).Apply(path, 160, 90); }
-            catch (Exception ex) when (ex is ArgumentException or OutOfMemoryException) { }
+            catch (PhotoSourceException) { }
             if (applied) throw new Exception("Invalid image reached Windows wallpaper API.");
             Console.WriteLine("PASS invalid images never reach the Windows wallpaper API");
             return 0;

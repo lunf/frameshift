@@ -4,7 +4,7 @@ Status: **V1 implemented** — see `README.md` for build, verification, and laun
 
 ### Implementation decisions
 
-- Product name: **Frame Shift**. C# / .NET 8 / WinForms, tray-only UI.
+- Product name: **Frame Shift v1.20**. C# / .NET 10 / WinForms, tray-only UI.
 - Free-text topic, configurable refresh (hourly default), optional Start with Windows, primary-screen sizing; multi-monitor and favorites remain v2.
 - Unsplash adapter retained for separately authorized use. Current Unsplash guidelines exclude wallpaper apps, so this is not ready for public distribution with that source.
 - Added a local-folder source so the product can operate without online credentials. Local topics match filenames; an empty topic selects from the entire folder.
@@ -55,7 +55,7 @@ A small Windows tray app that fetches photos from Unsplash and sets them as the 
 | Item | Choice |
 |---|---|
 | Language | C# |
-| Runtime | .NET 8 |
+| Runtime | .NET 10 |
 | UI | WinForms (tray icon + one small dialog) |
 | HTTP | `HttpClient` |
 | JSON | `System.Text.Json` |

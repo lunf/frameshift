@@ -13,7 +13,7 @@ internal sealed class Wallpaper(Action<string>? applyWallpaper = null) : IWallpa
         var prepared = imagePath + ".prepared";
         try
         {
-            using (var image = Image.FromFile(imagePath))
+            using (var image = ReadImage(imagePath))
             using (var bitmap = new Bitmap(width, height))
             using (var graphics = Graphics.FromImage(bitmap))
             {
@@ -32,6 +32,15 @@ internal sealed class Wallpaper(Action<string>? applyWallpaper = null) : IWallpa
                 throw new Win32Exception(Marshal.GetLastWin32Error(), "Windows could not set the desktop wallpaper.");
         }
         finally { if (File.Exists(prepared)) File.Delete(prepared); }
+    }
+
+    private static Image ReadImage(string path)
+    {
+        try { return Image.FromFile(path); }
+        catch (Exception ex) when (ex is ArgumentException or OutOfMemoryException or ExternalException)
+        {
+            throw new PhotoSourceException("The selected photo could not be decoded as an image. Try another photo.");
+        }
     }
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]

@@ -51,7 +51,7 @@ internal sealed class TrayApp : ApplicationContext
                ?? throw new InvalidOperationException("The app icon resource is missing."))
             trayIcon = new Icon(iconStream, SystemInformation.SmallIconSize);
         tray = new NotifyIcon { Icon = trayIcon, Visible = true, Text = "Frame Shift", ContextMenuStrip = menu };
-        menu.Items.Add(new ToolStripMenuItem("Frame Shift") { Enabled = false });
+        menu.Items.Add(new ToolStripMenuItem($"Frame Shift v{Application.ProductVersion}") { Enabled = false });
         menu.Items.Add(status);
         menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add(next);
