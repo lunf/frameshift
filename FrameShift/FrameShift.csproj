@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <AssemblyName>FrameShift</AssemblyName>
+    <Product>Frame Shift</Product>
+    <Description>Topic-based desktop wallpapers from your Windows tray.</Description>
+    <ApplicationIcon>Assets/app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../FrameShift.Core/FrameShift.Core.csproj" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Assets/app.ico" LogicalName="FrameShift.app.ico" /></ItemGroup>
+</Project>

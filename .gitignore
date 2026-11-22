@@ -1,0 +1,30 @@
+# .NET build and publish output
+**/bin/
+**/obj/
+/artifacts/
+/.dotnet/
+
+# Personal credentials (keep the empty example template)
+.env
+.env.*
+!.env.local.example
+access-key.txt
+
+# IDE and per-user settings
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Test results and local logs
+TestResults/
+*.coverage
+*.coveragexml
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
